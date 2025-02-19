@@ -1,0 +1,17 @@
+{
+  "name": "sam-first-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "restart-container": "chmod +x ./restartContainer.sh && ./restartContainer.sh",
+    "build": "sam build",
+    "dev": "nodemon --exec 'sam build && pnpm restart-container && sam local invoke $LAMBDA $( [[ -n \"$EVENT\" ]] && echo \"-e $EVENT\" )' --watch ./ --ext ts,mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
