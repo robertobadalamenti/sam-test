@@ -6,7 +6,8 @@
   "scripts": {
     "restart-container": "chmod +x ./restartContainer.sh && ./restartContainer.sh",
     "build": "sam build",
-    "dev": "nodemon --exec 'sam build && pnpm restart-container && sam local invoke $LAMBDA $( [[ -n \"$EVENT\" ]] && echo \"-e $EVENT\" )' --watch ./ --ext ts,mjs"
+    "quandoIContainerRimanevanoVivi": "nodemon --exec 'sam build && pnpm restart-container && sam local invoke $LAMBDA $( [[ -n \"$EVENT\" ]] && echo \"-e $EVENT\" ) --skip-pull-image' --watch ./ --ext ts,mjs",
+    "dev": "nodemon --exec 'sam build && pnpm restart-container && sam local invoke $LAMBDA $( [[ -n \"$EVENT\" ]] && echo \"-e $EVENT\" ) --skip-pull-image' --watch ./ --ext ts,mjs"
   },
   "keywords": [],
   "author": "",

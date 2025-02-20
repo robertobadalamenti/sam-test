@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start-api": "sam local start-api --",
+    "build": "sam build",
+    "dev": "nodemon --exec 'sam build && pnpm start-api' --watch ./ --ext ts,mjs"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

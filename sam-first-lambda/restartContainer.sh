@@ -2,7 +2,7 @@
 
 # Validate input
 if [ -z "$LAMBDA" ]; then
-  echo "Error: No Lambda function name provided."
+  echo "Error: No Lambda function name provided. Try with LAMBDA=NameOfTheLambda pnpm dev"
   exit 1
 fi
 
@@ -38,12 +38,12 @@ container_id=$(docker ps -q --filter "ancestor=$image")
 # Check if a container was found
 if [ -z "$container_id" ]; then
 
-  # Try invoking the function locally using SAM CLI
-  if [ -n "$EVENT" ]; then
-    sam local invoke "$LAMBDA" -e "$EVENT"
-  else
-    sam local invoke "$LAMBDA"
-  fi
+  # # Try invoking the function locally using SAM CLI
+  # if [ -n "$EVENT" ]; then
+  #   sam local invoke "$LAMBDA" -e "$EVENT"
+  # else
+  #   sam local invoke "$LAMBDA"
+  # fi
   # Check if sam local invoke succeeded
   if [ $? -eq 0 ]; then
     echo "Successfully invoked Lambda function locally."
